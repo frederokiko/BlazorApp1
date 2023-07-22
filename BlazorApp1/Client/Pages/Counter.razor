@@ -1,0 +1,44 @@
+﻿@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+<p role="status"> @montexte</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount"> Ajouter +</button>
+<button class="btn btn-primary" @onclick="DecrementCount"> Retirer -</button>
+@code {
+    private int currentCount = 0;
+    private string montexte = " ";
+
+    private void IncrementCount()
+    {
+        currentCount++;
+        if (currentCount > 10)
+        {
+            montexte = "Message: !!! limite atteinte !!!";
+            currentCount = 10;
+        }
+        else
+        {
+            montexte = " ";
+        }
+
+    }
+    private void DecrementCount()
+    {
+        currentCount--;
+        if (currentCount < 0)
+        {
+            montexte = "Message: !!! Je n'irai pas plus bas que 0 !!!";
+            currentCount = 0;
+        }
+        else
+        {
+            montexte = " ";
+        }
+    }
+   
+}
